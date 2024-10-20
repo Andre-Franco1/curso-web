@@ -23,4 +23,9 @@ public class CategoriaService implements Serializable {
 	public List<Categoria> buscarTodos() {
 		return categoriaDAO.buscarTodos();
 	}
+	
+	public void excluir(Categoria categoria) throws NegocioException {
+		categoriaDAO.excluir(categoria);
+		
+	}
 }

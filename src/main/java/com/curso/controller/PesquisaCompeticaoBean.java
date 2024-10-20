@@ -9,7 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.curso.modelo.Clube;
+
 import com.curso.modelo.Competicao;
 import com.curso.service.CompeticaoService;
 import com.curso.util.MessageUtil;

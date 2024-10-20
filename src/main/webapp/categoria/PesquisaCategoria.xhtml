@@ -25,7 +25,7 @@
 	    		</p:toolbarGroup>
 	    	</p:toolbar>
 	    	
-	    	<p:dataTable id="categoriaTable" value="#{pesquisaCategoriaBean.categorias}" var="categoria"
+	    	<p:dataTable id="categoriasTable" value="#{pesquisaCategoriaBean.categorias}" var="categoria"
 		    		style="margin-top: 20px" emptyMessage="Nenhuma categoria encontrado." rows="10"
 		    		paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
 		    		lazy="false" rowsPerPageTemplate="5,10,15">
@@ -40,9 +40,28 @@
 	    			<h:outputText value="#{categoria.nome}" />
 	    		</p:column>
 	    		
-	    		
+	    		<p:column style="width: 100px; text-align: center">
+		    		<p:button outcome="CadastroCategoria" icon="pi pi-pencil" title="Editar">
+		    			<f:param name="categoria" value="#{categoria.codigo}"/>
+		    		</p:button>
+		    		<p:commandButton icon="pi pi-trash" title="Excluir" 		    				
+		    				onclick="PF('confirmacaoExclusao').show();"
+							process="@this" 
+							>
+						<f:setPropertyActionListener target="#{pesquisaCategoriaBean.categoriaSelecionada}" value="#{categoria}" />
+					</p:commandButton>
+		    	</p:column>
 		   	</p:dataTable>
-		 
+		   	<p:confirmDialog id="confirmacaoExclusaoDialog" 
+		   			widgetVar="confirmacaoExclusao"
+	        		message="Tem certeza que deseja excluir a categoria #{pesquisaCategoriaBean.categoriaSelecionada.sigla}?"  
+	                header="Exclusão de categoria" severity="alert">
+	        	<p:button icon="pi pi-thumbs-down" value="Não" 
+	        		onclick="PF('confirmacaoExclusao').hide(); return false;" />
+	        	<p:commandButton icon="pi pi-thumbs-up" value="Sim" 
+	        		update=":frmPesquisa:categoriasTable"
+	        		onclick="PF('confirmacaoExclusao').hide();" action="#{pesquisaCategoriaBean.excluir}" />
+	    	</p:confirmDialog>
     	</h:form>
     </ui:define>
 </ui:composition>
