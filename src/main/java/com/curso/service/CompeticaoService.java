@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.curso.dao.CompeticaoDAO;
+import com.curso.modelo.Clube;
 import com.curso.modelo.Competicao;
 import com.curso.util.NegocioException;
 
@@ -23,5 +24,10 @@ public class CompeticaoService implements Serializable {
 	
 	public List<Competicao> buscarTodos() {
 		return competicaoDAO.buscarTodos();
+	}
+	
+	public void excluir(Competicao competicao) throws NegocioException {
+		competicaoDAO.excluir(competicao);
+		
 	}
 }
