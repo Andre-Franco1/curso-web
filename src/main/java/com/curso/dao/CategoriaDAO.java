@@ -1,6 +1,7 @@
 package com.curso.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -19,5 +20,10 @@ public class CategoriaDAO implements Serializable {
 	@Transactional
 	public void salvar(Categoria categoria) {
 		manager.merge(categoria);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Categoria> buscarTodos() {
+		return manager.createNamedQuery("Categoria.buscarTodos").getResultList();
 	}
 }
