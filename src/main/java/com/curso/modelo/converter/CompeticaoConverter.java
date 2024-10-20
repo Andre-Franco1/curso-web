@@ -7,7 +7,6 @@ import javax.faces.convert.FacesConverter;
 
 
 import com.curso.dao.CompeticaoDAO;
-import com.curso.modelo.Clube;
 import com.curso.modelo.Competicao;
 import com.curso.util.cdi.CDIServiceLocator;
 
@@ -28,6 +27,7 @@ public class CompeticaoConverter implements Converter {
 
 		if (value != null) {
 			retorno = this.competicaoDAO.buscarPeloCodigo(Long.parseLong(value));
+
 		}
 
 		return retorno;
@@ -35,10 +35,16 @@ public class CompeticaoConverter implements Converter {
 
 
 
-	@Override
+	@Override  //converte de objeto para codigo - necessário mapear do modelo obj para relacional
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		// TODO Auto-generated method stub
-		return null;
+		if (value != null) {
+			Long codigo = ((Competicao) value).getCodigo();
+			String retorno = (codigo == null ? null : codigo.toString());
+
+			return retorno;
+		}
+
+		return "";
 	}
 
 }

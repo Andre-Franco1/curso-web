@@ -36,10 +36,9 @@ public class ClubeConverter implements Converter {
 		if (value != null) {
 			Long codigo = ((Clube) value).getCodigo();
 			String retorno = (codigo == null ? null : codigo.toString());
-			
 			return retorno;
 		}
-		
+
 		return "";
 	}
 

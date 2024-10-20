@@ -20,7 +20,7 @@ import com.curso.modelo.enums.Etapa;
 public class Evento {
 	private Long codigo;
 	private String local;
-	private Date date;
+	private Date data;
 	private String organizador;
 	private Competicao competicao;
 	private Etapa etapa;
@@ -46,12 +46,12 @@ public class Evento {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date getDate() {
-		return date;
+	public Date getData() {
+		return data;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setData(Date data) {
+		this.data = data;
 	}
 
 

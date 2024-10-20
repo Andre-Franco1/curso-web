@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
-import com.curso.modelo.Clube;
 import com.curso.modelo.Competicao;
 import com.curso.util.NegocioException;
 import com.curso.util.jpa.Transactional;
