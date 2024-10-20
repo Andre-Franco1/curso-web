@@ -51,10 +51,31 @@
 	    		<p:column headerText="Competicao" style="width: 40px; text-align: center"
 	    			filterBy="#{evento.competicao.nome}">
 	    			<h:outputText value="#{evento.competicao.nome}" />
-	    		</p:column>	    		
-	    			
+	    		</p:column>	
+	    		    		
+	    			<p:column style="width: 60px; text-align: center">
+		    		<p:button outcome="CadastroEvento" icon="pi pi-pencil" title="Editar">
+		    			<f:param name="evento" value="#{evento.codigo}"/>
+		    		</p:button>
+		    		<p:commandButton icon="pi pi-trash" title="Excluir" 		    				
+		    				onclick="PF('confirmacaoExclusao').show();"
+							process="@this" 
+							>
+						<f:setPropertyActionListener target="#{pesquisaEventoBean.eventoSelecionado}" value="#{evento}" />
+					</p:commandButton>
+		    	</p:column>
 	  
 		   	</p:dataTable>
+		   		<p:confirmDialog id="confirmacaoExclusaoDialog" 
+		   			widgetVar="confirmacaoExclusao"
+	        		message="Tem certeza que deseja excluir o evento no local #{pesquisaEventoBean.eventoSelecionado.local}?"  
+	                header="Exclusão de evento" severity="alert">
+	        	<p:button icon="pi pi-thumbs-down" value="Não" 
+	        		onclick="PF('confirmacaoExclusao').hide(); return false;" />
+	        	<p:commandButton icon="pi pi-thumbs-up" value="Sim" 
+	        		update=":frmPesquisa:eventosTable"
+	        		onclick="PF('confirmacaoExclusao').hide();" action="#{pesquisaEventoBean.excluir}" />
+	    	</p:confirmDialog>
 		   
     	</h:form>
     </ui:define>

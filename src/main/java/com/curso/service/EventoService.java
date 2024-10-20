@@ -32,4 +32,8 @@ public class EventoService implements Serializable {
 		return eventoDAO.buscarTodos();
 	}
 	
+	public void excluir(Evento evento) throws NegocioException {
+		eventoDAO.excluir(evento);		
+	}
+	
 }

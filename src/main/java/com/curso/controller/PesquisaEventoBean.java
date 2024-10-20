@@ -11,6 +11,8 @@ import javax.inject.Named;
 
 import com.curso.modelo.Evento;
 import com.curso.service.EventoService;
+import com.curso.util.MessageUtil;
+import com.curso.util.NegocioException;
 
 @Named
 @ViewScoped
@@ -19,6 +21,7 @@ public class PesquisaEventoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private List<Evento> eventos = new ArrayList<Evento>();
+	private Evento eventoSelecionado;
 	
 	@Inject
 	private EventoService eventoService;
@@ -27,13 +30,30 @@ public class PesquisaEventoBean implements Serializable {
 	@PostConstruct
 	public void inicializar() {
 		eventos = eventoService.buscarTodos();
-		System.out.print("oq temos aqui " + eventos);
-	}
 
+	}
+	public void excluir() {
+		try {
+			eventoService.excluir(eventoSelecionado);			
+			this.eventos.remove(eventoSelecionado);
+			MessageUtil.sucesso("evento no local" + eventoSelecionado.getLocal() + " excluído com sucesso.");
+		} catch (NegocioException e) {
+			MessageUtil.erro(e.getMessage());
+		}
+	}
 
 	public List<Evento> getEventos() {
 		return eventos;
 	}
+	
+	public Evento getEventoSelecionado() {
+		return eventoSelecionado;
+	}
+	public void setEventoSelecionado(Evento eventoSelecionado) {
+		this.eventoSelecionado = eventoSelecionado;
+	}
+	
+	
 
 	
 }
