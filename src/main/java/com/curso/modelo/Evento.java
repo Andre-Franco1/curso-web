@@ -11,12 +11,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.curso.modelo.enums.Etapa;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Evento.buscarTodos", query="select e from Evento e")
+})
 public class Evento {
 	private Long codigo;
 	private String local;

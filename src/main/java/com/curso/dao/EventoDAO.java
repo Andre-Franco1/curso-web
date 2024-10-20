@@ -1,6 +1,7 @@
 package com.curso.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -20,4 +21,8 @@ public class EventoDAO implements Serializable {
 	public void salvar(Evento evento) throws NegocioException {
 			manager.merge(evento);
 	}
+	@SuppressWarnings("unchecked")
+	public List<Evento> buscarTodos() {
+		return manager.createNamedQuery("Evento.buscarTodos").getResultList();
+	}	
 }

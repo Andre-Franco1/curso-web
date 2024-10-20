@@ -28,4 +28,8 @@ public class EventoService implements Serializable {
 		return competicaoDAO.buscarTodos();
 	}
 	
+	public List<Evento> buscarTodos() {
+		return eventoDAO.buscarTodos();
+	}
+	
 }

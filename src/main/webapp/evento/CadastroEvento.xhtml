@@ -32,7 +32,7 @@
 			                <span class="ui-icon ui-icon-grip-dotted-vertical" />
 			        </span>
 			        
-					<!-- RESOLVER DEPOIS <p:button icon="pi pi-search" value="Pesquisar" outcome="/atleta/PesquisaAtleta.xhtml"/> -->
+					 <p:button icon="pi pi-search" value="Pesquisar" outcome="/evento/PesquisaEvento.xhtml"/> 
 				</p:toolbarGroup>
 	    	</p:toolbar>
 	    	
@@ -74,6 +74,14 @@
 				<p:calendar id="data" size="10"  
 					value="#{cadastroEventoBean.evento.data}"
 					pattern="dd/MM/yyyy" /> 
+					
+				<p:outputLabel value="Etapa" for="etapa"/>	    		
+	    		<p:selectOneMenu id="etapa" 
+	    			value="#{cadastroEventoBean.evento.etapa}">
+	    			<f:selectItem itemLabel="Selecione a etapa" />
+	    			<f:selectItems value="#{cadastroEventoBean.etapas}" var="etapa"
+						itemLabel="#{etapa}" itemValue="#{etapa}"/>
+	    		</p:selectOneMenu>
 	    	
 	    		<p:spacer height="10px" />
 	    		
