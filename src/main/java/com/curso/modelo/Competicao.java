@@ -36,5 +36,6 @@ public class Competicao {
 	public void setAno(String ano) {
 		this.ano = ano;
 	}
+	
 
 }

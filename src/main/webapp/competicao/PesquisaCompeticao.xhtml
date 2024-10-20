@@ -44,7 +44,10 @@
 
 
 				<p:column style="width: 100px; text-align: center">
-					
+					<p:button outcome="CadastroCompeticao" icon="pi pi-pencil"
+						title="Editar">
+						<f:param name="competicao" value="#{competicao.codigo}" />
+					</p:button>
 					<p:commandButton icon="pi pi-trash" title="Excluir"
 						onclick="PF('confirmacaoExclusao').show();" process="@this">
 						<f:setPropertyActionListener
