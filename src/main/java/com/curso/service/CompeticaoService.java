@@ -1,6 +1,7 @@
 package com.curso.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -18,5 +19,9 @@ public class CompeticaoService implements Serializable {
 	public void salvar(Competicao competicao) throws NegocioException {			
 		
 		this.competicaoDAO.salvar(competicao);
+	}
+	
+	public List<Competicao> buscarTodos() {
+		return competicaoDAO.buscarTodos();
 	}
 }

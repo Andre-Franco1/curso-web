@@ -1,6 +1,7 @@
 package com.curso.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,5 +19,10 @@ private static final long serialVersionUID = 1L;
 	@Transactional
 	public void salvar(Competicao competicao) {
 		manager.merge(competicao);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Competicao> buscarTodos() {
+		return manager.createNamedQuery("Competicao.buscarTodos").getResultList();
 	}
 }
