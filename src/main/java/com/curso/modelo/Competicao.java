@@ -1,5 +1,6 @@
 package com.curso.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,8 @@ public class Competicao {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
+	
+	@Column(unique=true)
 	public String getNome() {
 		return nome;
 	}

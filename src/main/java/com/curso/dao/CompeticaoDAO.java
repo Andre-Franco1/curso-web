@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 
+import org.hibernate.exception.ConstraintViolationException;
+
 import com.curso.modelo.Competicao;
 import com.curso.util.NegocioException;
 import com.curso.util.jpa.Transactional;
@@ -19,8 +21,12 @@ private static final long serialVersionUID = 1L;
 	private EntityManager manager;
 	
 	@Transactional
-	public void salvar(Competicao competicao) {
-		manager.merge(competicao);
+	public void salvar(Competicao competicao) throws NegocioException {
+		try {
+			manager.merge(competicao);
+		} catch (ConstraintViolationException e) {
+			throw new NegocioException("Violação de restrição, provavelmente nome já existe.");
+		}
 	}
 	
 	@SuppressWarnings("unchecked")
