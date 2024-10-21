@@ -29,9 +29,15 @@ public class CategoriaConverter  implements Converter {
 		return retorno;
 	}
 
-	@Override
+	@Override  //converte de objeto para codigo - necessário mapear do modelo obj para relacional
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		// TODO Auto-generated method stub
-		return null;
+		if (value != null) {
+			Long codigo = ((Categoria) value).getCodigo();
+			String retorno = (codigo == null ? null : codigo.toString());
+
+			return retorno;
+		}
+
+		return "";
 	}
 }

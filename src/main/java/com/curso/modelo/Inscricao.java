@@ -24,7 +24,7 @@ public class Inscricao {
 	private int isCondicaoFisica;
 	private int comprovante;
 	private int arquivo;
-	private Date datainscricao;
+	private Date dataInscricao;
 	private String contato;
 	private String telefoneContato;
 	private Status status;
@@ -82,13 +82,13 @@ public class Inscricao {
 		this.arquivo = arquivo;
 	}
 
-	public Date getDatainscricao() {
-		return datainscricao;
+	public Date getDataInscricao() {
+		return dataInscricao;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public void setDatainscricao(Date datainscricao) {
-		this.datainscricao = datainscricao;
+	public void setDataInscricao(Date dataInscricao) {
+		this.dataInscricao = dataInscricao;
 	}
 
 	public String getContato() {
