@@ -11,7 +11,7 @@ import com.curso.util.NegocioException;
 import com.curso.service.CompeticaoService;
 import java.io.Serializable;
 
-@Named
+@Named("cadastroCompeticaoBean")
 @ViewScoped
 public class CadastroCompeticaoBean implements Serializable {
     private static final long serialVersionUID = 1L; // necessário por causa do Serializable
@@ -23,7 +23,7 @@ public class CadastroCompeticaoBean implements Serializable {
 
     @PostConstruct
     public void inicializar() {
-        limpar();
+        this.limpar();
     }
 
     public void limpar() {
@@ -34,7 +34,7 @@ public class CadastroCompeticaoBean implements Serializable {
         try {
             competicaoService.salvar(competicao);
             MessageUtil.sucesso("Competição registrada! Sucesso.");
-            limpar();
+            this.limpar();
         } catch (NegocioException e) {
             MessageUtil.erro(e.getMessage());
         }

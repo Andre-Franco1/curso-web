@@ -21,7 +21,7 @@ public class PesquisaCompeticaoBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private List<Competicao> competicoes = new ArrayList<>();
-    
+
     private Competicao competicao;
 
     @Inject
