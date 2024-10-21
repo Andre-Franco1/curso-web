@@ -5,37 +5,42 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import com.curso.dao.ClubeDAO;
-import com.curso.modelo.Clube;
+
+import com.curso.dao.CompeticaoDAO;
+import com.curso.modelo.Competicao;
 import com.curso.util.cdi.CDIServiceLocator;
 
+@FacesConverter(forClass=Competicao.class)
+public class CompeticaoConverter implements Converter {
 
-
-@FacesConverter(forClass=Clube.class)
-public class ClubeConverter implements Converter {
-
-	private ClubeDAO clubeDAO;
+	private CompeticaoDAO competicaoDAO;
 	
-	public ClubeConverter() {
-		this.clubeDAO = CDIServiceLocator.getBean(ClubeDAO.class);
+	public CompeticaoConverter() {
+		this.competicaoDAO = CDIServiceLocator.getBean(CompeticaoDAO.class);
 	}
 	
-	@Override    //converte tipo String para objeto - necessário mapear do modelo relacional para obj
+
+
+	@Override 
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		Clube retorno = null;
+		Competicao retorno = null;
 
 		if (value != null) {
-			retorno = this.clubeDAO.buscarPeloCodigo(Long.parseLong(value));
+			retorno = this.competicaoDAO.buscarPeloCodigo(Long.parseLong(value));
+
 		}
 
 		return retorno;
 	}
 
+
+
 	@Override  //converte de objeto para codigo - necessário mapear do modelo obj para relacional
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value != null) {
-			Long codigo = ((Clube) value).getCodigo();
+			Long codigo = ((Competicao) value).getCodigo();
 			String retorno = (codigo == null ? null : codigo.toString());
+
 			return retorno;
 		}
 
