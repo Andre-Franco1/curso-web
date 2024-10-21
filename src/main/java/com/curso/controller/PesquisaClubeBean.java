@@ -14,7 +14,6 @@ import com.curso.service.ClubeService;
 import com.curso.util.MessageUtil;
 import com.curso.util.NegocioException;
 
-
 @Named
 @ViewScoped
 public class PesquisaClubeBean implements Serializable {
