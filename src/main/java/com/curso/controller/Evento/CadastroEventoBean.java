@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Evento;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;

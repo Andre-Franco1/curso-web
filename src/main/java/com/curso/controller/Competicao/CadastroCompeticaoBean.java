@@ -1,24 +1,25 @@
-package com.curso.controller;
+package com.curso.controller.Competicao;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.inject.Inject;
 import com.curso.util.MessageUtil;
-import com.curso.modelo.Categoria;
-import com.curso.service.CategoriaService;
+import com.curso.modelo.Atleta;
+import com.curso.modelo.Competicao;
 import com.curso.util.NegocioException;
+import com.curso.service.CompeticaoService;
 import java.io.Serializable;
 
 @Named
 @ViewScoped
-public class CadastroCategoriaBean implements Serializable {
+public class CadastroCompeticaoBean implements Serializable {
     private static final long serialVersionUID = 1L; // necessário por causa do Serializable
 
-    private Categoria categoria;
+    private Competicao competicao;
 
     @Inject
-    private CategoriaService categoriaService;
+    private CompeticaoService competicaoService;
 
     @PostConstruct
     public void inicializar() {
@@ -26,24 +27,24 @@ public class CadastroCategoriaBean implements Serializable {
     }
 
     public void limpar() {
-        categoria = new Categoria();
+        competicao = new Competicao();
     }
 
     public void salvar() {
         try {
-            categoriaService.salvar(categoria);
-            MessageUtil.sucesso("Categoria registrada! Sucesso.");
+            competicaoService.salvar(competicao);
+            MessageUtil.sucesso("Competição registrada! Sucesso.");
             limpar();
         } catch (NegocioException e) {
             MessageUtil.erro(e.getMessage());
         }
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Competicao getCompeticao() {
+        return competicao;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setCompeticao(Competicao competicao) {
+        this.competicao = competicao;
     }
 }

@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Evento;
 
 import java.io.Serializable;
 import java.util.ArrayList;

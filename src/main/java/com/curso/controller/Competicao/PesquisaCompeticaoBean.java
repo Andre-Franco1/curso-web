@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Competicao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
