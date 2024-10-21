@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 
 import com.curso.modelo.Inscricao;
 import com.curso.util.NegocioException;
@@ -22,6 +23,16 @@ public class InscricaoDAO implements Serializable {
 			manager.merge(inscricao);
 	}
 	
+	@Transactional
+	public void excluir(Inscricao inscricao) throws NegocioException {
+		inscricao = buscarPeloCodigo(inscricao.getCodigo());
+		try {
+			manager.remove(inscricao);
+			manager.flush();
+		} catch (PersistenceException e) {
+			throw new NegocioException("Esta inscrição não pode ser excluída.");
+		}
+	}
 	@SuppressWarnings("unchecked")
 	public List<Inscricao> buscarTodos() {
 		return manager.createNamedQuery("Inscricao.buscarTodos").getResultList();

@@ -36,6 +36,9 @@ public class InscricaoService implements Serializable {
 		
 		this.inscricaoDAO.salvar(inscricao);
 	}
+	public void excluir(Inscricao inscricao) throws NegocioException {
+		inscricaoDAO.excluir(inscricao);		
+	}
 	
 	public List<Inscricao> buscarTodos() {
 		return inscricaoDAO.buscarTodos();
@@ -49,5 +52,6 @@ public class InscricaoService implements Serializable {
 	public List<Atleta> buscarAtletas() {
 		return atletaDAO.buscarTodos();
 	}
+
 
 }

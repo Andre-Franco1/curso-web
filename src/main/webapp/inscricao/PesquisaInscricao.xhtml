@@ -70,10 +70,25 @@
 		    		<p:button outcome="CadastroInscricao" icon="pi pi-pencil" title="Editar">
 		    			<f:param name="inscricao" value="#{inscricao.codigo}"/>
 		    		</p:button>
+		    		<p:commandButton icon="pi pi-trash" title="Excluir" 		    				
+		    				onclick="PF('confirmacaoExclusao').show();"
+							process="@this" 
+							>
+						<f:setPropertyActionListener target="#{pesquisaInscricaoBean.inscricaoSelecionada}" value="#{inscricao}" />
+					</p:commandButton>
 		
 		    	</p:column>
 		   	</p:dataTable>
-		  
+		  	<p:confirmDialog id="confirmacaoExclusaoDialog" 
+		   			widgetVar="confirmacaoExclusao"
+	        		message="Tem certeza que deseja excluir essa inscrição?"  
+	                header="Exclusão de inscrição de atleta" severity="alert">
+	        	<p:button icon="pi pi-thumbs-down" value="Não" 
+	        		onclick="PF('confirmacaoExclusao').hide(); return false;" />
+	        	<p:commandButton icon="pi pi-thumbs-up" value="Sim" 
+	        		update=":frmPesquisa:inscricoesTable"
+	        		onclick="PF('confirmacaoExclusao').hide();" action="#{pesquisaInscricaoBean.excluir}" />
+	    	</p:confirmDialog>
     	</h:form>
     </ui:define>
 </ui:composition>

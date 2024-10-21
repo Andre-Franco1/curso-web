@@ -67,9 +67,9 @@
 	    			required="true" 
 	    			value="#{cadastroInscricaoBean.inscricao.evento}"
 	    			validatorMessage="O evento é obrigatório.">
-	    			<f:selectItem itemLabel="Selecione o local do evento" />
+	    			<f:selectItem itemLabel="Selecione o  evento" />
 	    			<f:selectItems value="#{cadastroInscricaoBean.eventos}" var="evento" 
-						itemLabel="#{evento.local}" itemValue="#{evento}"/>
+						itemLabel="#{evento.competicao.nome}  #{evento.local}" itemValue="#{evento}"/>
 	    		</p:selectOneMenu>	
 	    		
 				<p:outputLabel value="Possui alguma alergia?" for="isAlergico" />
