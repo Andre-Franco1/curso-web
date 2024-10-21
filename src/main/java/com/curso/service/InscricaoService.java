@@ -36,6 +36,10 @@ public class InscricaoService implements Serializable {
 		
 		this.inscricaoDAO.salvar(inscricao);
 	}
+	
+	public List<Inscricao> buscarTodos() {
+		return inscricaoDAO.buscarTodos();
+	}
 	public List<Evento> buscarEventos() {
 		return eventoDAO.buscarTodos();
 	}
