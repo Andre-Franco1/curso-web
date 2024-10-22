@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>cupertino</artifactId>
-			<version>1.0.10</version>
+			<version>1.0.11</version>
 		</dependency>
 
 

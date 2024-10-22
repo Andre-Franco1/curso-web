@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Clube;
 
 import java.io.Serializable;
 

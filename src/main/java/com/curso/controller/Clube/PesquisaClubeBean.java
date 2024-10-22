@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Clube;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,7 +13,6 @@ import com.curso.modelo.Clube;
 import com.curso.service.ClubeService;
 import com.curso.util.MessageUtil;
 import com.curso.util.NegocioException;
-
 
 @Named
 @ViewScoped

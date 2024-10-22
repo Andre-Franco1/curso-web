@@ -1,4 +1,4 @@
-package com.curso.controller;
+package com.curso.controller.Atleta;
 
 import java.io.Serializable;
 import java.util.Arrays;
